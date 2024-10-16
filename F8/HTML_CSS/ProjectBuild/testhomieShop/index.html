@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" href="CSS">
+    <link rel="stylesheet" href="IMG">
+    <style>
+        .form-container {
+            display: none;
+        }
+    </style>
+    <script>
+        function showForm(formId) {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById(formId).style.display = 'block';
+
+            document.getElementById('home-btn').style.display = 'block';
+            document.getElementById('login-btn').style.display = 'block';
+            document.getElementById('signup-btn').style.display = 'block';
+
+            if (formId === 'home') {
+                document.getElementById('home-btn').style.display = 'none';
+            } else if (formId === 'login-form') {
+                document.getElementById('login-btn').style.display = 'none';
+            } else if (formId === 'signup-form') {
+                document.getElementById('signup-btn').style.display = 'none';
+            }
+        }
+
+        function goHome() {
+            showForm('home');
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <button id="home-btn" onclick="showForm('home')">Trang Chủ</button>
+        <button id="login-btn" onclick="showForm('login-form')">Đăng Nhập</button>
+        <button id="signup-btn" onclick="showForm('signup-form')">Đăng Ký</button>
+    </nav>
+    <div id="home">
+        <h1>Chào mừng đến với Trang Chủ</h1>
+        <!-- Thêm nội dung trang chủ ở đây -->
+    </div>
+    <div id="login-form" class="form-container">
+        <form action="">
+            <h1>Đăng Nhập</h1>
+            <label>Tên Đăng Nhập</label>
+            <input type="text">
+            
+            <label>Mật Khẩu</label>
+            <input type="password">
+            
+            <button>Đăng Nhập</button>
+            <a href="#" onclick="showForm('signup-form')">Đăng Ký</a>
+            <button type="button" onclick="goHome()">Trở về Trang Chủ</button>
+        </form>
+    </div>
+    <div id="signup-form" class="form-container">
+        <form action="">
+            <h1>Đăng Ký</h1>
+            <label>Tên Đăng Nhập</label>
+            <input type="text">
+            
+            <label>Mật Khẩu</label>
+            <input type="password">
+            
+            <button>Đăng Ký</button>
+            <a href="#" onclick="showForm('login-form')">Đăng Nhập</a>
+            <button type="button" onclick="goHome()">Trở về Trang Chủ</button>
+        </form>
+    </div>
+</body>
+</html>
